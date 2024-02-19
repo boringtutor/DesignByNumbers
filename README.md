@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# sbn
 
-## Getting Started
+A compiler for small drawing language sbn(SVG by Numbers). Inspired by John Maeda's book: Design by Numbers.
 
-First, run the development server:
+## Supported Keywords
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This compiler is work-in-progress. Here is a list of commands currently supported (v0.4.3) & planning to implement. (sbn language specification is compatible with Design by Numbers chapter 1 - 12)
+
+- [x] `Paper`
+- [x] `Pen`
+- [x] `Line`
+- [x] `// comment`
+- [x] `Set` (variable)
+- [x] `{ }` (block)
+- [ ] Nested block
+- [ ] `Repeat`
+- [ ] `(+ - / *)` (calculations)
+- [x] `[x, y]` (dot)
+- [ ] Copy Dots (calculation on dot)
+- [ ] `Same ? / NotSame?` (question)
+- [ ] `Smaller ? / NotSmaller?` (question)
+- [ ] `Command` (function)
+- [ ] `Load` (import)
+
+## usage
+
+<!-- ### browser
+
+include sbn.js in your html, `sbn` object will be available in global scope.
+
+```html
+<script src="./lib/sbn.js"></script>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Call `compile` method. The compiler creates SVG out of sbn code you passed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```javascript
+var code =
+  "Paper 95\nPen 1\nLine 50 15 85 80\nPen 30\nLine 85 80 15 80\nPen 70\nLine 15 80 50 15";
+var svg = sbn.compile(code);
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+document.body.innerHTML = svg;
+```
 
-## Learn More
+### node
 
-To learn more about Next.js, take a look at the following resources:
+You can run sbn compiler on node to create SVG file.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```javascript
+var fs = require("fs");
+var sbn = require("sbn");
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+var code = `
+  Paper 95
+  Pen 1
+  Line 50 15 85 80
+  Pen 30
+  Line 85 80 15 80
+  Pen 70
+  Line 15 80 50 15
+`;
 
-## Deploy on Vercel
+fs.writeFile("sbn_drawing.svg", sbn.compile(code), function (err) {
+  console.log("SVG was saved!");
+});
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Copyright 2016 Mariko Kosaka
+
+Code licensed under the [Apache-2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
+Documentation licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) -->
