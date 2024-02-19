@@ -18,7 +18,7 @@ const CodeEditor = ({
       {/*  style={{"position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"}} */}
 
       <div id="code" className=" flex h-[300px] bg-red-300">
-        <AceEditor height="350px" width="700px" onChange={handler} />
+        <AceEditor height="360px" width="700px" onChange={handler} />
       </div>
     </div>
   );

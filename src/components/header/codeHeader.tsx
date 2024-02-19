@@ -11,8 +11,16 @@ const testCode = `<svg width="100" height="100" viewBox="0 0 100 100" xmlns="htt
 <line x1="77" y1="23" x2="77" y2="23" stroke="rgb(100%, 100%, 100%)" stroke-linecap="round"></line>
 </svg>`;
 
-function CodeHeader() {
-  const [codeState, setCodeState] = React.useState("");
+function CodeHeader({
+  codeState,
+  setCodeState,
+  handler,
+}: {
+  codeState: string;
+  setCodeState: any;
+  handler: any;
+}) {
+  // const [codeState, setCodeState] = React.useState("");
   function onCodeSubmit(value: any) {
     console.log("Code submitted: ", value);
     setCodeState(value);
@@ -24,8 +32,13 @@ function CodeHeader() {
       >
         <Canvas code={testCode} />
       </div>
-      <div className="flex felx-auto h-full border-4 border-pink-400">
-        <CodeEditor handler={onCodeSubmit} />
+      <div className="flex flex-col">
+        <button className="bg-rose-300" onClick={handler}>
+          SUBMIT
+        </button>
+        <div className="flex felx-auto h-full border-4 border-pink-400">
+          <CodeEditor handler={onCodeSubmit} />
+        </div>
       </div>
     </div>
   );
