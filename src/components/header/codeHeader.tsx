@@ -30,7 +30,7 @@ function CodeHeader({
       <div
         className={`flex-auto  flex justify-center align-middle border-4 border-purple-500`}
       >
-        <Canvas code={testCode} />
+        <Canvas code={codeState} />
       </div>
       <div className="flex flex-col">
         <button className="bg-rose-300" onClick={handler}>
