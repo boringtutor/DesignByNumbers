@@ -3,10 +3,10 @@ export type ParsedAstType = {
   body: {
     type: string;
     name?: string;
-    value?: string;
+    value?: number;
     arguments?: {
       type: string;
-      value: string;
+      value: number;
     }[];
   }[];
 };

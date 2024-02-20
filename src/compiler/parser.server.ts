@@ -1,10 +1,11 @@
 import { ParsedAstType } from "@/types/misc";
 
-export default function ParserAST(tokens: any): ParsedAstType | string {
+export default function ParserAST(newtokens: any): ParsedAstType | string {
   var AST: any = {
     type: "Drawing",
     body: [],
   };
+  const tokens = [...newtokens]; //NOTE: copy the array because javascript is pass by reference
   while (tokens.length > 0) {
     const token = tokens.shift();
     if (token.type === "word") {
