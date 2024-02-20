@@ -122,6 +122,7 @@ export default function Home() {
       "Paper 95\nPen 1\nLine 50 15 85 80\nPen 30\nLine 85 80 15 80\nPen 70\nLine 15 80 50 15";
     console.log("Performing Task........");
     setUserCode(testCode);
+    dispatch({ type: "SET_CODE", payload: testCode }); // Dispatch action to update code state
     dispatch({ type: "SET_TOKENS", payload: [] }); // Dispatch action to update code state
     dispatch({ type: "SET_AST", payload: "" }); // Dispatch action to update ast state
     dispatch({ type: "SET_TRASNFORMED_AST", payload: "" }); // Dispatch action to update transformed ast state
@@ -135,7 +136,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col border-4 border-red-200 p-5  ">
       <CodeHeader
-        codeState={codeState.code}
+        codeState={codeState.svg}
         setCodeState={setUserCode}
         handler={PerformTask}
       />
